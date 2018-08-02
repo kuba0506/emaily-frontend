@@ -9,12 +9,12 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <li><NavLink to="/auth/google">Login with Google</NavLink></li>
+                    <li><a href="/auth/google">Login with Google</a></li>
                 );
             default:
                 return (
                     <div>
-                        <li><NavLink to="/api/logout">Logout</NavLink></li>
+                        <li><a href="/api/logout">Logout</a></li>
                     </div>
                 );
         }
@@ -24,7 +24,7 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <NavLink to="/">Logo</NavLink>
+                    <NavLink to={this.props.auth ? "/surveys" : "/"} className="left brand-logo">Emaily</NavLink>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {this.renderLinks()}
                     </ul>
