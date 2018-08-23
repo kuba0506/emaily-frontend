@@ -39,3 +39,16 @@ export const submitSurvey = (values, history) => async dispatch => {
         console.log('Error: ', e);
     }
 };
+
+export const fetchSurveys = () => async dispatch => {
+    try {
+        const res = await axios.get('/api/surveys');
+        
+        dispatch({
+            type: actions.FETCH_SURVEYS,
+            payload: res.data
+        });
+    } catch (e) {
+        console.log('Error: ', e);
+    }
+};
