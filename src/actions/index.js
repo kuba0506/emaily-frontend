@@ -52,3 +52,19 @@ export const fetchSurveys = () => async dispatch => {
         console.log('Error: ', e);
     }
 };
+
+export const removeSurvey = id => async dispatch => {
+    console.log('action id', id)
+    try {
+        const res = await axios.delete(`/api/surveys/remove`, {data: {id}});
+        console.log('res ', res)
+        
+        dispatch({
+            type: actions.FETCH_SURVEYS,
+            payload: res.data
+        });
+        
+    } catch (e) {
+        console.log('Error: ', e);
+    }
+};
